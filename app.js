@@ -19,26 +19,23 @@ $(function () {
         array.push({ name: item });
     };
 
-    $(function () {
-        appendList(shoppingList, $('#list'));
+    appendList(shoppingList, $('#list'));
 
-        $('#list').on('click', '.delete', function (event) {
+    $('#list').on('click', '.delete', function (event) {
 
-            var itemToDelete = $(event.currentTarget).closest('li').attr('id');
-            deleteItem(shoppingList, itemToDelete);
-        });
-
-        $('form').submit(function (event) {
-            event.preventDefault();
-            var item = $('input').val();
-            if (item === '') {
-            } else {
-                addItem(shoppingList, item);
-                appendList(shoppingList, $('#list'));
-                $('input').val('');
-            }
-        });
+        var itemToDelete = $(event.currentTarget).closest('li').attr('id');
+        deleteItem(shoppingList, itemToDelete);
     });
 
+    $('form').submit(function (event) {
+        event.preventDefault();
+        var item = $('input').val();
+        if (item === '') {
+        } else {
+            addItem(shoppingList, item);
+            appendList(shoppingList, $('#list'));
+            $('input').val('');
+        }
+    });
 });
 
